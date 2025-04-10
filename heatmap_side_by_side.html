@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "hconcat": [{"data": {"name": "data-0e509df310a6f3069cbb9f715d759f69"}, "mark": {"type": "rect"}, "encoding": {"color": {"field": "value", "scale": {"domain": [-1, 1]}, "title": "Correlation", "type": "quantitative"}, "tooltip": [{"field": "index", "type": "nominal"}, {"field": "variable", "type": "nominal"}, {"field": "value", "type": "quantitative"}], "x": {"field": "index", "title": "Factor", "type": "nominal"}, "y": {"field": "variable", "title": "Factor", "type": "nominal"}}, "height": 400, "title": "Correlation Heatmap of Sleep Influencing Factors (Co-op Students)", "width": 400}, {"data": {"name": "data-9b06729955b46c232435d8dc862eb979"}, "mark": {"type": "rect"}, "encoding": {"color": {"field": "value", "scale": {"domain": [-1, 1]}, "title": "Correlation", "type": "quantitative"}, "tooltip": [{"field": "index", "type": "nominal"}, {"field": "variable", "type": "nominal"}, {"field": "value", "type": "quantitative"}], "x": {"field": "index", "title": "Factor", "type": "nominal"}, "y": {"field": "variable", "title": "Factor", "type": "nominal"}}, "height": 400, "title": "Correlation Heatmap of Sleep Influencing Factors (Class Students)", "width": 400}], "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-0e509df310a6f3069cbb9f715d759f69": [{"index": "sleep_quality", "variable": "sleep_quality", "value": 1.0}, {"index": "caffeine_intake", "variable": "sleep_quality", "value": 0.15801279917758704}, {"index": "screen_time", "variable": "sleep_quality", "value": -0.3323099625007345}, {"index": "avg_sleep_duration", "variable": "sleep_quality", "value": 0.11570052755126092}, {"index": "gpa", "variable": "sleep_quality", "value": -0.11215636596095842}, {"index": "sleep_quality", "variable": "caffeine_intake", "value": 0.15801279917758704}, {"index": "caffeine_intake", "variable": "caffeine_intake", "value": 1.0}, {"index": "screen_time", "variable": "caffeine_intake", "value": -0.17511541058439875}, {"index": "avg_sleep_duration", "variable": "caffeine_intake", "value": 0.2756833650778409}, {"index": "gpa", "variable": "caffeine_intake", "value": -0.01473845784941443}, {"index": "sleep_quality", "variable": "screen_time", "value": -0.3323099625007345}, {"index": "caffeine_intake", "variable": "screen_time", "value": -0.17511541058439875}, {"index": "screen_time", "variable": "screen_time", "value": 1.0}, {"index": "avg_sleep_duration", "variable": "screen_time", "value": -0.42010753311121907}, {"index": "gpa", "variable": "screen_time", "value": -0.1655260440856959}, {"index": "sleep_quality", "variable": "avg_sleep_duration", "value": 0.11570052755126092}, {"index": "caffeine_intake", "variable": "avg_sleep_duration", "value": 0.2756833650778409}, {"index": "screen_time", "variable": "avg_sleep_duration", "value": -0.42010753311121907}, {"index": "avg_sleep_duration", "variable": "avg_sleep_duration", "value": 1.0}, {"index": "gpa", "variable": "avg_sleep_duration", "value": -0.16223287838574757}, {"index": "sleep_quality", "variable": "gpa", "value": -0.11215636596095842}, {"index": "caffeine_intake", "variable": "gpa", "value": -0.01473845784941443}, {"index": "screen_time", "variable": "gpa", "value": -0.1655260440856959}, {"index": "avg_sleep_duration", "variable": "gpa", "value": -0.16223287838574757}, {"index": "gpa", "variable": "gpa", "value": 1.0}], "data-9b06729955b46c232435d8dc862eb979": [{"index": "sleep_quality", "variable": "sleep_quality", "value": 1.0}, {"index": "caffeine_intake", "variable": "sleep_quality", "value": 0.0028553168452819925}, {"index": "screen_time", "variable": "sleep_quality", "value": 0.10703328005669507}, {"index": "avg_sleep_duration", "variable": "sleep_quality", "value": -0.013142821041831728}, {"index": "gpa", "variable": "sleep_quality", "value": 0.010079087574054475}, {"index": "sleep_quality", "variable": "caffeine_intake", "value": 0.0028553168452819925}, {"index": "caffeine_intake", "variable": "caffeine_intake", "value": 1.0}, {"index": "screen_time", "variable": "caffeine_intake", "value": 0.1527987525049734}, {"index": "avg_sleep_duration", "variable": "caffeine_intake", "value": -0.14804279250147134}, {"index": "gpa", "variable": "caffeine_intake", "value": 0.03080323699935242}, {"index": "sleep_quality", "variable": "screen_time", "value": 0.10703328005669507}, {"index": "caffeine_intake", "variable": "screen_time", "value": 0.1527987525049734}, {"index": "screen_time", "variable": "screen_time", "value": 1.0}, {"index": "avg_sleep_duration", "variable": "screen_time", "value": -0.029599269110859798}, {"index": "gpa", "variable": "screen_time", "value": -0.12144176683495328}, {"index": "sleep_quality", "variable": "avg_sleep_duration", "value": -0.013142821041831728}, {"index": "caffeine_intake", "variable": "avg_sleep_duration", "value": -0.14804279250147134}, {"index": "screen_time", "variable": "avg_sleep_duration", "value": -0.029599269110859798}, {"index": "avg_sleep_duration", "variable": "avg_sleep_duration", "value": 1.0}, {"index": "gpa", "variable": "avg_sleep_duration", "value": -0.034870165664382016}, {"index": "sleep_quality", "variable": "gpa", "value": 0.010079087574054475}, {"index": "caffeine_intake", "variable": "gpa", "value": 0.03080323699935242}, {"index": "screen_time", "variable": "gpa", "value": -0.12144176683495328}, {"index": "avg_sleep_duration", "variable": "gpa", "value": -0.034870165664382016}, {"index": "gpa", "variable": "gpa", "value": 1.0}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
