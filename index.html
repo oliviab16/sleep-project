@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sleep Patterns Among College Students</title>
+    <title>Sleep Patterns and Academic Performance</title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
@@ -13,9 +13,10 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            max-width: 85%;
+            max-width: 90%;
             margin: 0 auto;
             padding: 20px;
+            font-size: 18px; /* Increased base font size */
         }
         header {
             text-align: center;
@@ -25,10 +26,18 @@
         }
         h1 {
             color: #2C3E50;
+            font-size: 32px; /* Larger h1 */
         }
         h2 {
             color: #3498DB;
             margin-top: 2rem;
+            font-size: 28px; /* Larger h2 */
+        }
+        h3 {
+            font-size: 24px; /* Larger h3 */
+        }
+        h4 {
+            font-size: 20px; /* Larger h4 */
         }
         section {
             margin-bottom: 3rem;
@@ -42,6 +51,7 @@
         }
         .vis-description {
             margin-bottom: 1rem;
+            font-size: 18px; /* Ensure consistent font size */
         }
         .findings {
             margin-top: 1rem;
@@ -49,11 +59,13 @@
             background-color: #e8f4fc;
             border-left: 4px solid #3498DB;
             border-radius: 0 4px 4px 0;
+            font-size: 18px; /* Ensure consistent font size */
         }
         .references {
             background-color: #f5f5f5;
             padding: 1.5rem;
             border-radius: 5px;
+            font-size: 18px; /* Ensure consistent font size for references */
         }
         .references ul {
             padding-left: 1.5rem;
@@ -67,7 +79,7 @@
         }
         #d3-visualization {
             width: 100%;
-            height: 450px;
+            height: 500px; /* Standardized height */
             margin: 1rem 0;
         }
         .tooltip {
@@ -77,7 +89,7 @@
             color: #fff;
             border-radius: 5px;
             pointer-events: none;
-            font-size: 14px;
+            font-size: 16px; /* Larger tooltip text */
             z-index: 100;
         }
         #filter-controls {
@@ -91,37 +103,32 @@
         #filter-controls label {
             margin-right: 20px;
             font-weight: bold;
+            font-size: 18px; /* Larger control label */
         }
         #filter-controls select {
             padding: 5px;
             border-radius: 4px;
             border: 1px solid #ccc;
+            font-size: 16px; /* Larger dropdown text */
         }
         
-        /* Custom iframe heights for each visualization */
+        /* Standardized iframe heights for all visualizations */
         .visualization-iframe {
-            width: 100%;
             border: none;
             overflow: hidden;
             display: block;
             margin: 0;
-            
         }
         
-        .gpa-chart {
-            height: 550px;
+        /* Specific sizes for different visualizations */
+        .heatmap-viz {
+            width: 100%;
+            height: 600px; /* Increased height for heatmap */
         }
         
-        .box-plots {
-            height: 400px;
-        }
-        
-        .caffeine-chart {
+        .standard-viz {
+            width: 100%;
             height: 500px;
-        }
-        
-        .heatmaps {
-            height: 550px;
         }
         
         /* Container with standardized padding */
@@ -131,18 +138,30 @@
             overflow: hidden;
         }
         
+        /* Side-by-side layout for caffeine visualization */
+        .two-column-layout {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+        }
+        
+        .column {
+            flex: 1;
+        }
+        
         .future-improvements {
             background-color: #f0f7ee;
             padding: 1.5rem;
             border-radius: 5px;
             border-left: 4px solid #27ae60;
             margin-top: 2rem;
+            font-size: 18px; /* Ensure consistent font size */
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Sleep Patterns Among College Students</h1>
+        <h1>Sleep Patterns and Academic Performance Among College Students</h1>
         <p>A data visualization project exploring the relationship between sleep duration/quality and various factors affecting college students</p>
     </header>
 
@@ -201,19 +220,19 @@
                 <p>Sleep duration was relatively consistent throughout the week, with a noticeable increase on weekends (Saturday and Sunday, shown in orange). This pattern likely reflects students' ability to sleep in more on weekends when they don't have early morning classes or work commitments. The weekday consistency suggests that students maintain somewhat regular sleep schedules during the academic/work week.</p>
             </div>
         </div>
-        
+
         <div class="visualization-container">
-            <h3>2. Sleep Duration vs. GPA (Altair)</h3>
+            <h3>2. Correlation Heatmaps: Comparing Co-op and Class Students</h3>
             <div class="vis-description">
-                <p>This scatter plot explores the relationship between average sleep duration and academic performance measured by GPA. The correlation coefficient (r = -0.016) indicates almost no linear relationship between sleep duration and GPA in our sample, suggesting that other factors may be more influential for academic performance.</p>
+                <p>These heatmaps show the correlations between different factors related to sleep and academic performance, separately for Co-op and Class students. This visualization helps identify whether relationships between factors differ between students in different academic programs.</p>
             </div>
             <div class="vis-content">
-                <!-- Use iframe for the second visualization with custom height -->
-                <iframe src="sleep_duration_gpa.html" class="visualization-iframe gpa-chart" scrolling="no"></iframe>
+                <!-- Use iframe for the heatmaps visualization with taller height -->
+                <iframe src="heatmap_side_by_side.html" class="visualization-iframe heatmap-viz" scrolling="no"></iframe>
             </div>
             <div class="findings">
                 <h4>Key Findings:</h4>
-                <p>Our analysis shows a very weak correlation between sleep duration and GPA, with a correlation coefficient of only -0.016. This suggests that, contrary to popular belief, simply getting more sleep may not directly translate to better academic performance. Other factors such as study habits, course difficulty, and individual learning styles likely play more significant roles in determining academic success.</p>
+                <p>Our correlation heatmaps demonstrate which factors have stronger or weaker impacts on sleep duration and quality. The most notable finding was that screen time had the strongest negative correlation with both sleep quality and sleep duration. This suggests that excessive screen usage, particularly before bedtime, may be a significant factor affecting college students' sleep health. The correlation patterns also differed between co-op and class students, indicating that the relationships between these factors vary based on academic program type.</p>
             </div>
         </div>
         
@@ -223,8 +242,8 @@
                 <p>These box plots show the distribution of average daily sleep hours across different factors: roommate situation, academic program (co-op vs. classes), gender, and academic year. The box plots help identify how these factors might relate to sleep patterns.</p>
             </div>
             <div class="vis-content">
-                <!-- Use iframe for the third visualization with custom height -->
-                <iframe src="avg_sleep_hrs_boxplots.html" class="visualization-iframe box-plots" scrolling="no"></iframe>
+                <!-- Use iframe for the box plots visualization with standardized height -->
+                <iframe src="avg_sleep_hrs_boxplots.html" class="visualization-iframe standard-viz" scrolling="no"></iframe>
             </div>
             <div class="findings">
                 <h4>Key Findings:</h4>
@@ -233,32 +252,32 @@
         </div>
         
         <div class="visualization-container">
-            <h3>4. Caffeine Intake vs. Sleep Hours (With Sleep Quality Filter)</h3>
+            <h3>4. Sleep Duration vs. GPA (Altair)</h3>
             <div class="vis-description">
-                <p>This interactive visualization explores the relationship between caffeine intake and average sleep duration. The slider allows you to filter the data based on sleep quality ratings. This helps analyze whether caffeine consumption impacts sleep duration differently for students with different sleep quality.</p>
+                <p>This scatter plot explores the relationship between average sleep duration and academic performance measured by GPA. The correlation coefficient (r = -0.016) indicates almost no linear relationship between sleep duration and GPA in our sample, suggesting that other factors may be more influential for academic performance.</p>
             </div>
             <div class="vis-content">
-                <!-- Use iframe for the fourth visualization with custom height -->
-                <iframe src="caffeine_vs_sleepduration_scatter.html" class="visualization-iframe caffeine-chart" scrolling="no"></iframe>
+                <!-- Use iframe for the GPA visualization with standardized height -->
+                <iframe src="sleep_duration_gpa.html" class="visualization-iframe standard-viz" scrolling="no"></iframe>
             </div>
             <div class="findings">
                 <h4>Key Findings:</h4>
-                <p>The interactive scatter plot between caffeine intake and sleep duration allows exploration of patterns across academic disciplines. Using the sleep quality filter reveals that some students maintain good sleep quality despite high caffeine consumption, while others struggle with sleep quality even with low caffeine intake. This suggests individual differences in caffeine sensitivity may play a role in how it affects sleep patterns among college students.</p>
+                <p>Our analysis shows a very weak correlation between sleep duration and GPA, with a correlation coefficient of only -0.016. This suggests that, contrary to popular belief, simply getting more sleep may not directly translate to better academic performance. Other factors such as study habits, course difficulty, and individual learning styles likely play more significant roles in determining academic success.</p>
             </div>
         </div>
         
         <div class="visualization-container">
-            <h3>5. Correlation Heatmaps: Comparing Co-op and Class Students</h3>
+            <h3>5. Caffeine Intake vs. Sleep Hours (With Sleep Quality Filter)</h3>
             <div class="vis-description">
-                <p>These heatmaps show the correlations between different factors related to sleep and academic performance, separately for Co-op and Class students. This visualization helps identify whether relationships between factors differ between students in different academic programs.</p>
+                <p>This interactive visualization explores the relationship between caffeine intake and average sleep duration. The sleep quality slider allows you to filter the data based on sleep quality ratings, helping to analyze whether caffeine consumption impacts sleep duration differently for students with different sleep quality.</p>
             </div>
             <div class="vis-content">
-                <!-- Use iframe for the fifth visualization with custom height -->
-                <iframe src="heatmap_side_by_side.html" class="visualization-iframe heatmaps" scrolling="no"></iframe>
+                <!-- Use iframe for the caffeine visualization with standardized height -->
+                <iframe src="caffeine_vs_sleepduration_scatter.html" class="visualization-iframe standard-viz" scrolling="no"></iframe>
             </div>
             <div class="findings">
                 <h4>Key Findings:</h4>
-                <p>Our correlation heatmaps demonstrate which factors have stronger or weaker impacts on sleep duration and quality. The most notable finding was that screen time had the strongest negative correlation with both sleep quality and sleep duration. This suggests that excessive screen usage, particularly before bedtime, may be a significant factor affecting college students' sleep health. The correlation patterns also differed between co-op and class students, indicating that the relationships between these factors vary based on academic program type.</p>
+                <p>The interactive scatter plot between caffeine intake and sleep duration allows exploration of patterns across academic disciplines. Using the sleep quality filter reveals that some students maintain good sleep quality despite high caffeine consumption, while others struggle with sleep quality even with low caffeine intake. This suggests individual differences in caffeine sensitivity may play a role in how it affects sleep patterns among college students.</p>
             </div>
         </div>
     </section>
@@ -307,7 +326,7 @@
                     // Set up the SVG container, margins, and scales
                     margin = { top: 70, right: 30, bottom: 60, left: 60 }; // Increased top margin significantly
                     width = 900 - margin.left - margin.right;
-                    height = 450 - margin.top - margin.bottom;
+                    height = 500 - margin.top - margin.bottom; // Adjusted height to 500px to match iframe standardization
 
                     svg = d3.select("#d3-visualization")
                         .append('svg')
@@ -425,14 +444,16 @@
                     .domain([0, d3.max(processedData, d => d.avgDuration) * 1.1])
                     .range([height, 0]);
 
-                // Add x-axis
+                // Add x-axis with larger font
                 svg.append('g')
                     .attr('transform', `translate(0, ${height})`)
-                    .call(d3.axisBottom(x));
+                    .call(d3.axisBottom(x))
+                    .style('font-size', '14px'); // Larger axis text
                 
-                // Add y-axis
+                // Add y-axis with larger font
                 svg.append('g')
-                    .call(d3.axisLeft(y).ticks(10));
+                    .call(d3.axisLeft(y).ticks(10))
+                    .style('font-size', '14px'); // Larger axis text
                 
                 // Add x-axis label
                 svg.append('text')
@@ -440,7 +461,7 @@
                     .attr('x', width / 2)
                     .attr('y', height + margin.bottom - 10)
                     .text('Day of Week')
-                    .style('font-size', '14px');
+                    .style('font-size', '16px'); // Larger label
                 
                 // Add y-axis label
                 svg.append('text')
@@ -449,14 +470,14 @@
                     .attr('x', -height / 2)
                     .attr('y', -margin.left + 15)
                     .text('Average Sleep Duration (hours)')
-                    .style('font-size', '14px');
+                    .style('font-size', '16px'); // Larger label
 
                 // Add title
                 svg.append('text')
                     .attr('x', width / 2)
                     .attr('y', -margin.top / 2)
                     .attr('text-anchor', 'middle')
-                    .style('font-size', '16px')
+                    .style('font-size', '18px') // Larger title
                     .text('Average Sleep Duration by Day of Week');
 
                 // Add bars with different colors for weekdays and weekends
@@ -500,7 +521,8 @@
                     .attr('x', 24)
                     .attr('y', 9)
                     .attr('dy', '.35em')
-                    .text('Weekday');
+                    .text('Weekday')
+                    .style('font-size', '14px'); // Larger legend text
                     
                 legend.append('rect')
                     .attr('width', 18)
@@ -512,14 +534,15 @@
                     .attr('x', 24)
                     .attr('y', 33)
                     .attr('dy', '.35em')
-                    .text('Weekend');
+                    .text('Weekend')
+                    .style('font-size', '14px'); // Larger legend text
                 
                 // Add subtitle with filter information
                 svg.append('text')
                     .attr('x', width / 2)
                     .attr('y', -margin.top / 2 + 25)
                     .attr('text-anchor', 'middle')
-                    .style('font-size', '12px')
+                    .style('font-size', '14px') // Larger subtitle
                     .style('font-style', 'italic')
                     .text(() => {
                         const count = filteredData.length;
